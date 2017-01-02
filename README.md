@@ -1,0 +1,2 @@
+# linearlambdacalculus
+Term assignment program
