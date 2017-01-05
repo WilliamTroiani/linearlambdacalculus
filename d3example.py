@@ -41,4 +41,7 @@ T1 = ll.syntax_tree('(copy derelict((lx.x)) as y, x in z)')
 # beloved Church numeral 2
 T2 = ll.syntax_tree('(lq.(copy q as h, g in (lz.(derelict(g)(derelict(h)z)))))')
 
-print(construct_d3tree(T2,'null'))
+# binary sequence 001
+T3 = ll.syntax_tree('(lq.(lp.(copy q as r, s in (lz.(derelict(p)(derelict(s)(derelict(r)z)))))))')
+
+print(construct_d3tree(T3,'null'))
