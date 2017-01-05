@@ -36,6 +36,9 @@ def construct_d3tree(tree, parent):
 				
 	return(t)
 
-T = ll.syntax_tree('(copy derelict((lx.x)) as y, x in z)')
+T1 = ll.syntax_tree('(copy derelict((lx.x)) as y, x in z)')
 
-print(construct_d3tree(T,'null'))
+# beloved Church numeral 2
+T2 = ll.syntax_tree('(lq.(copy q as h, g in (lz.(derelict(g)(derelict(h)z)))))')
+
+print(construct_d3tree(T2,'null'))
