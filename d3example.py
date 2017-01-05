@@ -2,9 +2,13 @@
 
 # Outputs a tree in Javascript form ready to be consumed by D3
 # following: http://stackoverflow.com/questions/14527011/python-library-for-creating-tree-graphs-out-of-nested-python-objects-dicts
+# http://www.d3noob.org/2014/01/tree-diagrams-in-d3js_11.html
+# TODO: make it interactive: http://bl.ocks.org/d3noob/8375092
 
 # Instructions: put your term in for T, and paste the output of this script into the
 # part of d3example.html where it says PASTE HERE
+
+
 
 import LinearLambdaCalc2 as ll
 import json
