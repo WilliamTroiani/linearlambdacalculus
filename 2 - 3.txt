@@ -1,0 +1,5 @@
+Changes 2-3:
+
+- is_var now checks for variables inside terms of the form '(var var)'.
+- the correct form of application is now (term term) (ie, need a space between them now).
+- Promotion no longer needs the extra commas.

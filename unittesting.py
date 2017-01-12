@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import LinearLambdaCalc2
+import LinearLambdaCalc3 as II
 
 check_list = []
 
@@ -10,7 +10,7 @@ error_list_owercase = ['is_owercase']
 actual_owercase = []
 
 for i in range(3):
-    actual_owercase.append(LinearLambdaCalc2.is_owercase(owercase_test[i]))
+    actual_owercase.append(II.is_owercase(owercase_test[i]))
     if actual_owercase[i] != expected_owercase[i]:
         error_list_owercase.append(i)
         
@@ -20,13 +20,14 @@ else:
     check_list.append(error_list_owercase)
 
 # 2) is_var
-var_test = ['(xx)', 1, '(x(lx.(xx)))', 1, '(ll.x)', 2]
-expected_var = [True, True, False]
+var_test = ['(xx)', 1, '(x(lx.(xx)))', 1, '(ll.x)', 2, '(xx)', 1, \
+            '(xx)', 2, '(xl)', 1, '(?x)', 2]
+expected_var = [True, True, False, True, True, False, False]
 error_list_var = ['is_var']
 actual_var = []
 
-for i in range(0,6,2):
-    actual_var.append(LinearLambdaCalc2.is_var(var_test[i],var_test[i + 1]))
+for i in range(0,14,2):
+    actual_var.append(II.is_var(var_test[i],var_test[i + 1]))
 for i in range(2):
     if actual_var[i] != expected_var[i]:
         error_list_var.append(i)
@@ -38,14 +39,14 @@ else:
 
 # 3) ss_indexer
 ss_indexer_test = ['', '(x(lx.(xx)))', \
-'(let derelict(y) be x @ (lf.(lx.((f(fx))))) in z)', '(Un(balanced)']
+'(let derelict(y) be x @ (lf.(lx.((f(fx))))) in z)', '(Un(balanced)', '(xy)']
 expected_ss_indexer = [[], [1,2,2,11], [5, 16, 20, 21, 24, 43, 47, 48], \
-                       []]
+                       [], [1,2,2,3]]
 error_list_ss_indexer = ['ss_indexer']
 actual_ss_indexer = []
 
-for i in range(4):
-    actual_ss_indexer.append(LinearLambdaCalc2.ss_indexer(ss_indexer_test[i]))
+for i in range(5):
+    actual_ss_indexer.append(II.ss_indexer(ss_indexer_test[i]))
     if actual_ss_indexer[i] != expected_ss_indexer[i]:
         error_list_ss_indexer.append(i)
 
@@ -64,7 +65,7 @@ error_list_ss_finder = ['ss_finder']
 actual_ss_finder = []
 
 for i in range(4):
-    actual_ss_finder.append(LinearLambdaCalc2.ss_finder(ss_finder_test[i]))
+    actual_ss_finder.append(II.ss_finder(ss_finder_test[i]))
     if actual_ss_finder[i] != expected_ss_finder[i]:
         error_list_ss_finder.append(i)
 
@@ -81,7 +82,7 @@ error_list_is_ss = ['is_ss']
 actual_is_ss = []
 
 for i in range(7):
-    actual_is_ss.append(LinearLambdaCalc2.is_ss(is_ss_test[i]))
+    actual_is_ss.append(II.is_ss(is_ss_test[i]))
     if actual_is_ss[i] != expected_is_ss[i]:
         error_list_is_ss.append(i)
 
@@ -97,7 +98,7 @@ error_list_is_abs = ['is_abs']
 actual_is_abs = []
 
 for i in range(3):
-    actual_is_abs.append(LinearLambdaCalc2.is_abs(is_abs_test[i]))
+    actual_is_abs.append(II.is_abs(is_abs_test[i]))
     if actual_is_abs[i] != expected_is_abs[i]:
         error_list_is_abs.append(i)
 
@@ -107,14 +108,14 @@ else:
     check_list.append(error_list_is_abs)
 
 # 7) is_app
-is_app_test = ['(xx)(yy)', '(x(lx.x))', '(xq)', '((lx.x)y)', \
-                '(derelict(x)y)', '((closed)(closed)derelict(x))']
+is_app_test = ['(xx) (yy)', '(x (lx.x))', '(x q)', '((lx.x) y)', \
+                '(derelict(x) y)', '((closed)(closed)derelict(x))']
 expected_is_app = [False, True, True, True, True, False]
 error_list_is_app = ['is_app']
 actual_is_app = []
 
 for i in range(6):
-    actual_is_app.append(LinearLambdaCalc2.is_app(is_app_test[i]))
+    actual_is_app.append(II.is_app(is_app_test[i]))
     if actual_is_app[i] != expected_is_app[i]:
         error_list_is_app.append(i)
 
@@ -132,7 +133,7 @@ error_list_is_tensorR = ['is_tensorR']
 actual_is_tensorR = []
 
 for i in range(6):
-    actual_is_tensorR.append(LinearLambdaCalc2.\
+    actual_is_tensorR.append(II.\
                              is_tensorR(is_tensorR_test[i]))
     if actual_is_tensorR[i] != expected_is_tensorR[i]:
         error_list_is_tensorR.append(i)
@@ -152,7 +153,7 @@ error_list_is_weak = ['is_weak']
 actual_is_weak = []
 
 for i in range(6):
-    actual_is_weak.append(LinearLambdaCalc2.\
+    actual_is_weak.append(II.\
                              is_weak(is_weak_test[i]))
     if actual_is_weak[i] != expected_is_weak[i]:
         error_list_is_weak.append(i)
@@ -172,7 +173,7 @@ error_list_is_tensorL = ['is_tensorL']
 actual_is_tensorL = []
 
 for i in range(4):
-    actual_is_tensorL.append(LinearLambdaCalc2.\
+    actual_is_tensorL.append(II.\
                              is_tensorL(is_tensorL_test[i]))
     if actual_is_tensorL[i] != expected_is_tensorL[i]:
         error_list_is_tensorL.append(i)
@@ -192,7 +193,7 @@ error_list_is_contraction = ['is_contraction']
 actual_is_contraction = []
 
 for i in range(4):
-    actual_is_contraction.append(LinearLambdaCalc2.\
+    actual_is_contraction.append(II.\
                              is_contraction(is_contraction_test[i]))
     if actual_is_contraction[i] != expected_is_contraction[i]:
         error_list_is_contraction.append(i)
@@ -210,7 +211,7 @@ error_list_is_derelict = ['is_derelict']
 actual_is_derelict = []
 
 for i in range(4):
-    actual_is_derelict.append(LinearLambdaCalc2.\
+    actual_is_derelict.append(II.\
                              is_derelict(is_derelict_test[i]))
     if actual_is_derelict[i] != expected_is_derelict[i]:
         error_list_is_derelict.append(i)
@@ -221,16 +222,18 @@ else:
     check_list.append(error_list_is_derelict)
 
 # 13) is_promotion
-is_promotion_test = ['(promote x, y, for z, w, in derelict(q))',
+is_promotion_test = ['(promote x, y for z, w in derelict(q))',
                 '(promote (xx), y, for derelict(w), in q)',
                 '(promote (xx), for derelict(w), z, in z)',
-                '(promote ??(x)??, ??(y)??, for ??(z)??, ??(w)??, in q)']
-expected_is_promotion = [True, False, False, False]
+                '(promote ??(x)??, ??(y)??, for ??(z)??, ??(w)??, in q)',
+                '(promote x for y in z)',
+                '(promote (lx.x), x, derelict(y) for x, x, derelict((zz)) in h)']
+expected_is_promotion = [True, False, False, False, True, True]
 error_list_is_promotion = ['is_promotion']
 actual_is_promotion = []
 
-for i in range(4):
-    actual_is_promotion.append(LinearLambdaCalc2.\
+for i in range(6):
+    actual_is_promotion.append(II.\
                              is_promotion(is_promotion_test[i]))
     if actual_is_promotion[i] != expected_is_promotion[i]:
         error_list_is_promotion.append(i)
