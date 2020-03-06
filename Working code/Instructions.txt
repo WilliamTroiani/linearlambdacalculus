@@ -50,3 +50,6 @@ var treeData = [
 
 Replace "something ugly" with what you have copied in the previous step. Save this
 as an html file and open, you will see a your desired deduction tree.
+
+Note: The first and last lines of LinearLambdaCalc2 may have to be deleted as well
+as a row of equals signs which are somewhere in the middle.
