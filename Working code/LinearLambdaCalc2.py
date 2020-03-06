@@ -655,7 +655,7 @@ def is_derelict(string):
 # length.
 def is_promotion(string):
     index_list = ss_indexer(string)
-    afr_for = (len(index_list) - 2)/2
+    afr_for = int((len(index_list) - 2)/2)
     check_number1 = 0
     check_number2 = 0
     for x in range(1,afr_for - 5,2):
