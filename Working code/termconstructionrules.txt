@@ -1,0 +1,30 @@
+Term construction rules:
+
+
+-----(var)
+  x
+
+
+  t        s
+--------------(app)
+     (ts)
+
+
+  x        t
+--------------(app)
+     (lx.t)
+
+
+    z        t
+------------------(weak)
+  (discard z in t)
+
+
+      x  y     t s
+-----------------------(cont)
+  (copy s as x,y in t)
+
+
+          x1 ... xn y1 ... ym   t
+-----------------------------------------(prom)
+  (promote y1 ... ym for x1 ... xn in t)
