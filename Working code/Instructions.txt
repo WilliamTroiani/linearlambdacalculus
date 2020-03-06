@@ -1,0 +1,52 @@
+Read me:
+
+The two programs linearlambdacalc and linearlambdacalcdisplay together can
+be used to display a deduction tree for any linear lambda term (as per the
+paper '[N. Benton, G. Bierman, V. de Paiva, M. Hyland] A Term Calculus for
+Intuitionistic Linear Logic').
+
+The program linearlambdacalc turns a given linear lambda term which can be
+copy and pasted into a section of the program linearlambdacalcdisplay which
+in turn displays the tree in a pretty format.
+
+Instructions:
+Open the file linearlambdacalc. At the bottom of the document you will see:
+
+-----------------------------------------------------------------------------------------------
+T1 = syntax_tree('(copy derelict((lx.x)) as y, x in z)')
+
+# beloved Church numeral 2
+T2 = syntax_tree('(lq.(copy q as h, g in (lz.(derelict(g)(derelict(h)z)))))')
+
+# binary sequence 001
+T3 = syntax_tree('(lq.(lp.(copy q as r, s in (lz.(derelict(p)(derelict(s)(derelict(r)z)))))))')
+
+print(construct_d3tree(T1,'null'))
+print(construct_d3tree(T2,'null'))
+print(construct_d3tree(T3,'null'))
+------------------------------------------------------------------------------------------------
+Replace any of T1, T2, or T3 with the linear lambda term you wish to see the
+deduction tree of. Please note:
+- the term must be a string (eg: x will not be accepted, but 'x' will),
+- the term must be enclosed in brackets according to the appropriate conventions.
+Eg, variables do not need to be surrounded in brackets, but almost everything
+else does.
+- the letter 'l' is being used in place of lambda.
+
+Once this has been done, run the program and you will receive three (most likely
+long) arrays. Highlight ONE of these and press copy, then open the document
+linearlambdacalcdisplay.
+
+Scroll down until you see the comment:
+
+// *** PASTE HERE *** 
+
+Delete what is inside the square brackets underneath this line, explicitly,
+you will see:
+
+var treeData = [
+"something ugly"
+];
+
+Replace "something ugly" with what you have copied in the previous step. Save this
+as an html file and open, you will see a your desired deduction tree.
